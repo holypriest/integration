@@ -1,9 +1,13 @@
-function int = midpoint(f, r)
+% Dados o integrando f, os limites do intervalo (a,b) e a quantidade de
+% subintervalos (r), calcula a aproximação da integral de f pela regra do
+% ponto médio
+
+function int = midpoint(f, a, b, r)
     h = 1 / r;
-    x = linspace(0, 1, r+1);
+    x = linspace(a, b, r+1);
     
-    int = h * f((x(1) + x(2)) / 2);
-    for i = 2:r
+    int = 0;
+    for i = 1:r
         int = int + h * f((x(i) + x(i+1)) / 2);
     end
 end
